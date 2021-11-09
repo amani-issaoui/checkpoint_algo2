@@ -1,0 +1,43 @@
+ ALGORITHM p1_s1
+ VAR
+ i,j,sum:INTEGER;
+ tab1 : ARRAY_OF INTEGER[5];
+ tab2:ARRAY_OF INTEGER[10];
+ exist:BOOLEAN;
+ BEGIN
+     sum:=0;
+     i:=0;
+     j:=0
+     FOR i FROM 0 TO tab1.length-1 STEP step  DO
+         read(tab1[i]);
+     END_FOR
+     FOR j FROM 0 TO tab2.length-1 STEP step  DO
+         read(tab2[j]);
+     END_FOR
+    
+     FOR i FROM 0 TO tab1.length-1 STEP step  DO
+     exist=false;
+         FOR j FROM 0 TO tab2.length-1 STEP step  DO
+             IF ( tab1[i]==tab2[j]) THEN
+                 exist=true;
+             END_IF
+             IF (exist==false) THEN
+                 sum:=sum+tab1[i];
+             END_IF
+         END_FOR
+     END_FOR
+     
+      FOR j FROM 0 TO tab2.length-1 STEP step  DO
+     exist=false;
+         FOR i FROM 0 TO tab1.length-1 STEP step  DO
+             IF ( tab2[j]==tab1[i]) THEN
+                 exist=true;
+             END_IF
+             IF (exist==false) THEN
+                 sum:=sum+tab2[j];
+             END_IF
+         END_FOR
+     END_FOR
+     
+     write(" la somme des elements distincts",sum);
+ END
